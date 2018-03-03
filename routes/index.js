@@ -22,7 +22,7 @@ router.post('/end', (req, res) => {
 
 router.post('/start', function (req, res) {
   const snakeInfo = {
-    color: '#FF0000',
+    color: '#FF2222',
     head_url: 'http://www.simpsonspark.com/images/persos/contributions/uter-22544.jpg',
     head_type: 'smile',
     tail_type: 'fat-rattle',
@@ -190,7 +190,7 @@ router.post('/move', function (req, res) {
 
     // Stop the snake from running into itself
     function checkSelf() {
-      for (var i = 0; i < gameState.you.body.data.length; i++) {
+      for (var i = 0; i < gameState.you.body.data.length - 1; i++) {
         for (var move in possibleMoves) {
           if (possibleMoves[move].x === gameState.you.body.data[i].x && possibleMoves[move].y === gameState.you.body.data[i].y) {
             possibleMoves[move].valid = false;
@@ -220,7 +220,7 @@ router.post('/move', function (req, res) {
           // console.log('Found enemy')
           // console.log(allSnakes[snake]);
           //Don't run into body
-          for (var i = 0; i < allSnakes[snake].body.data.length; i++) {
+          for (var i = 0; i < allSnakes[snake].body.data.length - 1; i++) {
             for (var move in possibleMoves) {
               if (possibleMoves[move].x === allSnakes[snake].body.data[i].x && possibleMoves[move].y === allSnakes[snake].body.data[i].y) {
                 possibleMoves[move].valid = false;
