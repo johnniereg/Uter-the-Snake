@@ -22,7 +22,7 @@ router.post('/end', (req, res) => {
 
 router.post('/start', function (req, res) {
   const snakeInfo = {
-    color: '#FF2222',
+    color: '#c0ffee',
     head_url: 'http://www.simpsonspark.com/images/persos/contributions/uter-22544.jpg',
     head_type: 'smile',
     tail_type: 'fat-rattle',
