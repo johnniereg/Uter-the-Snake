@@ -15,7 +15,7 @@ const taunts = [
   "I begged you to look at mine first!"
 ];
 
-//Johnnie's contribution
+//Johnnie's contribution <-- "Yeah baby"
 router.post('/end', (req, res) => {
   return res.sendStatus(200);
 });
@@ -26,7 +26,7 @@ router.post('/start', function (req, res) {
     head_url: 'http://www.simpsonspark.com/images/persos/contributions/uter-22544.jpg',
     head_type: 'smile',
     tail_type: 'fat-rattle',
-    taunt: taunts[0],
+    taunt: taunts[0]
   }
   return res.json(snakeInfo);
 });
@@ -134,15 +134,11 @@ router.post('/move', function (req, res) {
     let snakeLength = gameState.you.length;
     let tailPosition = snakeBody.body.data[snakeLength - 1];
     return tailPosition;
-
   }
 
   // Checks current health to switch between tail chasing and food chasing.
   function chooseTarget() {
-    if (gameState.snakes.data.length > 3) {
-      if (gameState.you.length < 4) {
-        return findFood();
-      }
+    if (gameState.snakes.data.length === 2) {
       if (gameState.you.health > (gameState.width + gameState.height)) {
         return findTail();
       } else {
