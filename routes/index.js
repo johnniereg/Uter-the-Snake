@@ -139,8 +139,8 @@ router.post('/move', function (req, res) {
 
   // Checks current health to switch between tail chasing and food chasing.
   function chooseTarget() {
-    if (gameState.snakes.data.length > 2) {
-      if (gameState.you.length < 5) {
+    if (gameState.snakes.data.length > 3) {
+      if (gameState.you.length < 4) {
         return findFood();
       }
       if (gameState.you.health > (gameState.width + gameState.height)) {
