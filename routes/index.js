@@ -22,7 +22,7 @@ router.post('/end', (req, res) => {
 
 router.post('/start', function (req, res) {
   const snakeInfo = {
-    color: '#FFD90F',
+    color: '#FF0000',
     head_url: 'http://www.simpsonspark.com/images/persos/contributions/uter-22544.jpg',
     head_type: 'smile',
     tail_type: 'fat-rattle',
@@ -139,14 +139,11 @@ router.post('/move', function (req, res) {
 
   // Checks current health to switch between tail chasing and food chasing.
   function chooseTarget() {
-    console.log('total snakes', gameState.snakes.data.length)
-    // if (gameState.snakes.data.length == 2) {
     if (gameState.you.length < 5) {
       return findFood();
     }
     if (gameState.you.health > (gameState.width + gameState.height)) {
       return findTail();
-    
     } else {
       return findFood();
     }
@@ -159,7 +156,7 @@ router.post('/move', function (req, res) {
   const snakeResponse = {};
 
   if (!path.length || (path.length === 2 && !grid.nodes[path[0][1]][path[0][0]].walkable)) {
-    // console.log('NO ROUTE')
+    console.log('NO ROUTE')
     var possibleMoves = [
       {
         direction: "right",
